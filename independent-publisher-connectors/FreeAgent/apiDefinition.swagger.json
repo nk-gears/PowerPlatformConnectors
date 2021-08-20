@@ -15,82 +15,12 @@
         "application/json"
     ],
     "paths": {
-        "/token_endpoint": {
-            "post": {
-                "summary": "Refresh access token",
-                "description": "Request an new Access Token using an existing Refresh Token (you'll need to provide a Refresh Token in the request body params)\n\nhttps://dev.freeagent.com/docs/oauth/#refreshing-the-access-token",
-                "operationId": "RefreshAccessToken",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "key": {
-                                        "type": "string",
-                                        "description": "key"
-                                    },
-                                    "value": {
-                                        "type": "string",
-                                        "description": "value"
-                                    },
-                                    "description": {
-                                        "type": "string",
-                                        "description": "description"
-                                    }
-                                },
-                                "default": {
-                                    "key": "refresh_token",
-                                    "value": "",
-                                    "description": "The refresh token to refresh."
-                                }
-                            }
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
         "/clients": {
             "get": {
                 "summary": "List all clients",
                 "description": "List all clients",
                 "operationId": "ListAllClients",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "default": {
                         "description": "default",
@@ -99,61 +29,12 @@
                 }
             }
         },
-        "/account_managers": {
-            "get": {
-                "summary": "List all account managers",
-                "description": "List all account managers",
-                "operationId": "ListAllAccountManagers",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-
         "/categories": {
             "get": {
                 "summary": "List Categories",
                 "description": "List Categories",
                 "operationId": "ListCategories",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "default": {
                         "description": "default",
@@ -168,22 +49,7 @@
                 "description": "Create Contact",
                 "operationId": "CreateContact",
                 "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    },
+                
                     {
                         "name": "body",
                         "in": "body",
@@ -231,24 +97,7 @@
                 "summary": "List Contacts",
                 "description": "List Contacts",
                 "operationId": "ListContacts",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "default": {
                         "description": "default",
@@ -269,22 +118,6 @@
                         "in": "path",
                         "type": "string",
                         "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
                     },
                     {
                         "name": "body",
@@ -310,14 +143,8 @@
                                     },
                                     "description": "contact"
                                 }
-                            },
-                            "default": {
-                                "contact": {
-                                    "first_name": "Frederick",
-                                    "last_name": "Testington",
-                                    "email": "fred@testingtonandsons.example.com"
-                                }
                             }
+                            
                         },
                         "required": true
                     }
@@ -340,22 +167,6 @@
                         "in": "path",
                         "type": "string",
                         "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
                     }
                 ],
                 "responses": {
@@ -376,22 +187,6 @@
                         "in": "path",
                         "type": "string",
                         "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
                     },
                     {
                         "name": "body",
@@ -439,22 +234,6 @@
                         "in": "path",
                         "type": "string",
                         "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
                     }
                 ],
                 "responses": {
@@ -477,22 +256,6 @@
                         "in": "path",
                         "type": "string",
                         "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
                     }
                 ],
                 "responses": {
@@ -515,22 +278,6 @@
                         "in": "path",
                         "type": "string",
                         "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
                     }
                 ],
                 "responses": {
@@ -553,22 +300,6 @@
                         "in": "path",
                         "type": "string",
                         "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
                     }
                 ],
                 "responses": {
@@ -585,22 +316,7 @@
                 "description": "Create Invoice",
                 "operationId": "CreateInvoice",
                 "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    },
+                   
                     {
                         "name": "body",
                         "in": "body",
@@ -669,24 +385,7 @@
                 "summary": "List Invoices",
                 "description": "List Invoices",
                 "operationId": "ListInvoices",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "default": {
                         "description": "default",
@@ -707,22 +406,6 @@
                         "in": "path",
                         "type": "string",
                         "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
                     }
                 ],
                 "responses": {
@@ -743,22 +426,6 @@
                         "in": "path",
                         "type": "string",
                         "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
                     }
                 ],
                 "responses": {
@@ -779,22 +446,6 @@
                         "in": "path",
                         "type": "string",
                         "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
                     },
                     {
                         "name": "body",
@@ -830,229 +481,13 @@
                 }
             }
         },
-        "/invoices/timeline": {
-            "get": {
-                "summary": "Get invoice timeline",
-                "description": "Get invoice timeline",
-                "operationId": "GetInvoiceTimeline",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/invoices/{id}/pdf": {
-            "get": {
-                "summary": "Show Invoice as PDF",
-                "description": "Show Invoice as PDF",
-                "operationId": "ShowInvoiceAsPdf",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/invoices/{id}/send_email": {
-            "post": {
-                "summary": "Send Invoice Email",
-                "description": "Send Invoice Email",
-                "operationId": "SendInvoiceEmail",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "invoice": {
-                                    "type": "object",
-                                    "properties": {
-                                        "email": {
-                                            "type": "object",
-                                            "properties": {
-                                                "to": {
-                                                    "type": "string",
-                                                    "description": "to"
-                                                },
-                                                "from": {
-                                                    "type": "string",
-                                                    "description": "from"
-                                                },
-                                                "subject": {
-                                                    "type": "string",
-                                                    "description": "subject"
-                                                },
-                                                "body": {
-                                                    "type": "string",
-                                                    "description": "body"
-                                                }
-                                            },
-                                            "description": "email"
-                                        }
-                                    },
-                                    "description": "invoice"
-                                }
-                            },
-                            "default": {
-                                "invoice": {
-                                    "email": {
-                                        "to": "Test Contact <test_contact@example.com>",
-                                        "from": "Our Company <us@company.com>",
-                                        "subject": "Testing",
-                                        "body": "Bison bison bison bison bison Bison bison"
-                                    }
-                                }
-                            }
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/invoices/{id}/direct_debit": {
-            "post": {
-                "summary": "Take Payment using GoCardless Direct Debit Mandate",
-                "description": "Only available for invoices which fit the following criteria:\n\n- The invoice must be sent\n- The invoice must have gocardless_preauth available and enabled as a payment method\n- The invoice must not have already had a payment taken for it",
-                "operationId": "TakePaymentUsingGocardlessDirectDebitMandate",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
         "/invoice_items": {
             "post": {
                 "summary": "Create Invoice Item",
                 "description": "Create Invoice Item",
                 "operationId": "CreateInvoiceItem",
                 "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept"
-                    },
+                    
                     {
                         "name": "body",
                         "in": "body",
@@ -1098,6 +533,42 @@
                                 }
                             }
                         },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/recurring_invoices": {
+            "get": {
+                "summary": "List all recurring invoices",
+                "description": "List all recurring invoices",
+                "operationId": "ListAllRecurringInvoices",
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "default",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/recurring_invoices/{id}": {
+            "get": {
+                "summary": "Show Recurring Invoice",
+                "description": "Show Recurring Invoice",
+                "operationId": "ShowRecurringInvoice",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "default": "",
+                        "in": "path",
+                        "type": "string",
                         "required": true
                     }
                 ],

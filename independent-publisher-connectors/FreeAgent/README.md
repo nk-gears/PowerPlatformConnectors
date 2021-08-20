@@ -23,6 +23,30 @@ This connector supports the following operations:
 ## Supported Operations
 This connector supports the following operations:
 
+
+### Action: Get Clients
+Retrieves List of all clients
+
+
+### Action: Get Categories
+Retrieves List of categories
+
+### Action: Get Contacts
+Retrieves List of contacts
+
+### Action: Get Contacts
+Retrieves a contact info based on Id
+
+### Action: Create Contact
+Create a New Contact
+
+### Action: Delete a Contact
+Delete a Contact
+
+### Action: Delete a Contact
+Update a  Contact
+
+
 ### Action: Get Invoices
 Retrieve a list of invoices
 
@@ -30,7 +54,7 @@ Retrieve a list of invoices
 Create a Invoice 
 
 ### Action: Delete Invoice
-Create a Invoice 
+Delete a Invoice 
 
 ### Action: Create Invoice Item
 Create a Invoice Line Item
@@ -40,6 +64,9 @@ Retrieves a list of recurring invoices
 
 ### Action: Get a Recurring Invoice
 Retrieves a recurring invoice based on Id.
+
+
+
 
 ## Obtaining Credentials
 - Create a App and get the OAuth Credentials. 
