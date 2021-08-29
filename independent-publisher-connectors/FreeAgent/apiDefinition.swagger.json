@@ -1,602 +1,841 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "version": "1.0.0",
-        "title": "FreeAgent",
-        "description": "FreeAgent"
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "FreeAgent",
+    "contact": {
+      "name": "Nirmal",
+      "url": "https://nkdews.me",
+      "email": "contact@appdews.com"
     },
-    "host": "api.freeagent.com",
-    "basePath": "/v2",
-    "schemes": [
-        "https"
-    ],
-    "consumes": [],
-    "produces": [
-        "application/json"
-    ],
-    "paths": {
-        "/clients": {
-            "get": {
-                "summary": "List all clients",
-                "description": "List all clients",
-                "operationId": "ListAllClients",
-                "parameters": [],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/categories": {
-            "get": {
-                "summary": "List Categories",
-                "description": "List Categories",
-                "operationId": "ListCategories",
-                "parameters": [],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/contacts": {
-            "post": {
-                "summary": "Create Contact",
-                "description": "Create Contact",
-                "operationId": "CreateContact",
-                "parameters": [
-                
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "contact": {
-                                    "type": "object",
-                                    "properties": {
-                                        "first_name": {
-                                            "type": "string",
-                                            "description": "first_name"
-                                        },
-                                        "last_name": {
-                                            "type": "string",
-                                            "description": "last_name"
-                                        },
-                                        "email": {
-                                            "type": "string",
-                                            "description": "email"
-                                        }
-                                    },
-                                    "description": "contact"
-                                }
-                            },
-                            "default": {
-                                "contact": {
-                                    "first_name": "Frederick",
-                                    "last_name": "Testington",
-                                    "email": "fred@testingtonandsons.example.com"
-                                }
-                            }
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            },
-            "get": {
-                "summary": "List Contacts",
-                "description": "List Contacts",
-                "operationId": "ListContacts",
-                "parameters": [],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/contacts/{id}": {
-            "delete": {
-                "summary": "Delete Contact",
-                "description": "Delete Contact",
-                "operationId": "DeleteContact",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
+    "description": "FreeAgent is a cloud based accounting system. It brings everything together, from invoice and expense management to project management and sales tax. FreeAgent made specifically for freelancers, small business owners and their accountants."
+  },
+  "host": "api.freeagent.com",
+  "basePath": "/v2",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+   
+    "/contacts": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "contacts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
                         "type": "string",
-                        "required": true
+                        "description": "url"
+                      },
+                      "first_name": {
+                        "type": "string",
+                        "description": "first_name"
+                      },
+                      "last_name": {
+                        "type": "string",
+                        "description": "last_name"
+                      },
+                      "organisation_name": {
+                        "type": "string",
+                        "description": "organisation_name"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "email"
+                      },
+                      "billing_email": {
+                        "type": "string",
+                        "description": "billing_email"
+                      },
+                      "phone_number": {
+                        "type": "string",
+                        "description": "phone_number"
+                      },
+                      "mobile": {
+                        "type": "string",
+                        "description": "mobile"
+                      },
+                      "address1": {
+                        "type": "string",
+                        "description": "address1"
+                      },
+                      "address2": {
+                        "type": "string",
+                        "description": "address2"
+                      },
+                      "address3": {
+                        "type": "string",
+                        "description": "address3"
+                      },
+                      "town": {
+                        "type": "string",
+                        "description": "town"
+                      },
+                      "region": {
+                        "type": "string",
+                        "description": "region"
+                      },
+                      "postcode": {
+                        "type": "string",
+                        "description": "postcode"
+                      },
+                      "country": {
+                        "type": "string",
+                        "description": "country"
+                      },
+                      "contact_name_on_invoices": {
+                        "type": "boolean",
+                        "description": "contact_name_on_invoices"
+                      },
+                      "default_payment_terms_in_days": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "default_payment_terms_in_days"
+                      },
+                      "locale": {
+                        "type": "string",
+                        "description": "locale"
+                      },
+                      "account_balance": {
+                        "type": "string",
+                        "description": "account_balance"
+                      },
+                      "uses_contact_invoice_sequence": {
+                        "type": "boolean",
+                        "description": "uses_contact_invoice_sequence"
+                      },
+                      "charge_sales_tax": {
+                        "type": "string",
+                        "description": "charge_sales_tax"
+                      },
+                      "sales_tax_registration_number": {
+                        "type": "string",
+                        "description": "sales_tax_registration_number"
+                      },
+                      "active_projects_count": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "active_projects_count"
+                      },
+                      "direct_debit_mandate_state": {
+                        "type": "string",
+                        "description": "direct_debit_mandate_state"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "status"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "created_at"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "description": "updated_at"
+                      }
+                    }
+                  },
+                  "description": "contacts"
+                }
+              }
+            }
+          }
+        },
+        "summary": "List all contacts",
+        "description": "List all contacts",
+        "operationId": "GetContacts",
+        "parameters": []
+      },
+      "post": {
+        "summary": "Create Contact",
+        "description": "Create Contact",
+        "operationId": "CreateContact",
+        "consumes": ["application/json"],
+        "parameters": [
+       
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "contact": {
+                  "type": "object",
+                  "properties": {
+                    "first_name": {
+                      "type": "string",
+                      "description": "first_name"
                     },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "contact": {
-                                    "type": "object",
-                                    "properties": {
-                                        "first_name": {
-                                            "type": "string",
-                                            "description": "first_name"
-                                        },
-                                        "last_name": {
-                                            "type": "string",
-                                            "description": "last_name"
-                                        },
-                                        "email": {
-                                            "type": "string",
-                                            "description": "email"
-                                        }
-                                    },
-                                    "description": "contact"
-                                }
-                            }
-                            
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            },
-            "get": {
-                "summary": "Show Contact",
-                "description": "Show Contact",
-                "operationId": "ShowContact",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            },
-            "put": {
-                "summary": "Update Contact",
-                "description": "Update Contact",
-                "operationId": "UpdateContact",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
+                    "last_name": {
+                      "type": "string",
+                      "description": "last_name"
                     },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "contact": {
-                                    "type": "object",
-                                    "properties": {
-                                        "country": {
-                                            "type": "string",
-                                            "description": "country"
-                                        }
-                                    },
-                                    "description": "contact"
-                                }
-                            },
-                            "default": {
-                                "contact": {
-                                    "country": "France"
-                                }
-                            }
-                        },
-                        "required": true
+                    "email": {
+                      "type": "string",
+                      "description": "email"
                     }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
+                  },
+                  "description": "contact"
                 }
-            }
-        },
-        "/invoices/{id}/transitions/mark_as_sent": {
-            "put": {
-                "summary": "Mark invoice as sent",
-                "description": "Mark invoice as sent",
-                "operationId": "MarkInvoiceAsSent",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/invoices/{id}/transitions/mark_as_cancelled": {
-            "put": {
-                "summary": "Mark invoice as cancelled",
-                "description": "Mark invoice as cancelled",
-                "operationId": "MarkInvoiceAsCancelled",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/invoices/{id}/transitions/mark_as_scheduled": {
-            "put": {
-                "summary": "Mark invoice as scheduled",
-                "description": "Mark invoice as scheduled",
-                "operationId": "MarkInvoiceAsScheduled",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/invoices/{id}/transitions/mark_as_draft": {
-            "put": {
-                "summary": "Mark invoice as draft",
-                "description": "Mark invoice as draft",
-                "operationId": "MarkInvoiceAsDraft",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/invoices": {
-            "post": {
-                "summary": "Create Invoice",
-                "description": "Create Invoice",
-                "operationId": "CreateInvoice",
-                "parameters": [
-                   
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "invoice": {
-                                    "type": "object",
-                                    "properties": {
-                                        "contact": {
-                                            "type": "string",
-                                            "description": "contact"
-                                        },
-                                        "dated_on": {
-                                            "type": "string",
-                                            "description": "dated_on"
-                                        },
-                                        "due_on": {
-                                            "type": "string",
-                                            "description": "due_on"
-                                        },
-                                        "currency": {
-                                            "type": "string",
-                                            "description": "currency"
-                                        },
-                                        "omit_header": {
-                                            "type": "boolean",
-                                            "description": "omit_header"
-                                        },
-                                        "always_show_bic_and_iban": {
-                                            "type": "boolean",
-                                            "description": "always_show_bic_and_iban"
-                                        },
-                                        "payment_terms_in_days": {
-                                            "type": "integer",
-                                            "format": "int32",
-                                            "description": "payment_terms_in_days"
-                                        }
-                                    },
-                                    "description": "invoice"
-                                }
-                            },
-                            "default": {
-                                "invoice": {
-                                    "contact": "{{url}}/contacts/:id",
-                                    "dated_on": "2019-08-18",
-                                    "due_on": "2019-09-18",
-                                    "currency": "GBP",
-                                    "omit_header": false,
-                                    "always_show_bic_and_iban": false,
-                                    "payment_terms_in_days": 30
-                                }
-                            }
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
+              }
+             
             },
-            "get": {
-                "summary": "List Invoices",
-                "description": "List Invoices",
-                "operationId": "ListInvoices",
-                "parameters": [],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/invoices/{id}": {
-            "delete": {
-                "summary": "Delete Invoice",
-                "description": "Delete Invoice",
-                "operationId": "DeleteInvoice",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            },
-            "get": {
-                "summary": "Show Invoice",
-                "description": "Show Invoice",
-                "operationId": "ShowInvoice",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            },
-            "put": {
-                "summary": "Update Invoice",
-                "description": "Update Invoice",
-                "operationId": "UpdateInvoice",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "invoice": {
-                                    "type": "object",
-                                    "properties": {
-                                        "notes": {
-                                            "type": "string",
-                                            "description": "notes"
-                                        }
-                                    },
-                                    "description": "invoice"
-                                }
-                            },
-                            "default": {
-                                "invoice": {
-                                    "notes": "An example of some additional text."
-                                }
-                            }
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/invoice_items": {
-            "post": {
-                "summary": "Create Invoice Item",
-                "description": "Create Invoice Item",
-                "operationId": "CreateInvoiceItem",
-                "parameters": [
-                    
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "invoice": {
-                                    "type": "string",
-                                    "description": "invoice"
-                                },
-                                "invoice_item": {
-                                    "type": "object",
-                                    "properties": {
-                                        "item_type": {
-                                            "type": "string",
-                                            "description": "item_type"
-                                        },
-                                        "quantity": {
-                                            "type": "integer",
-                                            "format": "int32",
-                                            "description": "quantity"
-                                        },
-                                        "price": {
-                                            "type": "integer",
-                                            "format": "int32",
-                                            "description": "price"
-                                        },
-                                        "description": {
-                                            "type": "string",
-                                            "description": "description"
-                                        }
-                                    },
-                                    "description": "invoice_item"
-                                }
-                            },
-                            "default": {
-                                "invoice": "https://api.freeagent.com/invoices/1",
-                                "invoice_item": {
-                                    "item_type": "Hours",
-                                    "quantity": 6,
-                                    "price": 35,
-                                    "description": "Fishing trip"
-                                }
-                            }
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/recurring_invoices": {
-            "get": {
-                "summary": "List all recurring invoices",
-                "description": "List all recurring invoices",
-                "operationId": "ListAllRecurringInvoices",
-                "parameters": [],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/recurring_invoices/{id}": {
-            "get": {
-                "summary": "Show Recurring Invoice",
-                "description": "Show Recurring Invoice",
-                "operationId": "ShowRecurringInvoice",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "default": "",
-                        "in": "path",
-                        "type": "string",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "201",
+            "schema": {}
+          }
         }
+      }
     },
-    "definitions": {},
-    "parameters": {},
-    "responses": {},
-    "securityDefinitions": {
-        "OAuth": {
-            "type": "oauth2",
-            "authorizationUrl": "https://your.authorization.url/here",
-            "tokenUrl": "https://your.token.url/here",
-            "flow": "accessCode",
-            "scopes": {}
+    "/contacts/{contact_id}": {
+      "delete": {
+        "summary": "Delete Contact",
+        "description": "Delete Contact",
+        "operationId": "DeleteContact",
+        "parameters": [
+          {
+            "name": "contact_id",
+            "default": "",
+            "in": "path",
+            "x-ms-url-encoding": "single" ,
+            "type": "string",
+
+            "x-ms-summary":"Contact",
+            "description":"Contact",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {}
+          }
         }
+      },
+      "put": {
+        "summary": "Update Contact",
+        "description": "Update Contact",
+        "operationId": "UpdateContact",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "contact_id",
+            "default": "",
+            "in": "path",
+            "x-ms-url-encoding": "single" ,
+            "type": "string",
+            "x-ms-summary":"Contact",
+            "description":"Contact",
+            "required": true
+          },
+     
+         
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "contact": {
+                  "type": "object",
+                  "properties": {
+                    "country": {
+                      "type": "string",
+                      "description": "country"
+                    }
+                  },
+                  "description": "contact"
+                }
+              }
+              
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "contact": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "description": "url"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "description": "first_name"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "description": "last_name"
+                    },
+                    "organisation_name": {
+                      "type": "string",
+                      "description": "organisation_name"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "email"
+                    },
+                    "billing_email": {
+                      "type": "string",
+                      "description": "billing_email"
+                    },
+                    "phone_number": {
+                      "type": "string",
+                      "description": "phone_number"
+                    },
+                    "mobile": {
+                      "type": "string",
+                      "description": "mobile"
+                    },
+                    "address1": {
+                      "type": "string",
+                      "description": "address1"
+                    },
+                    "address2": {
+                      "type": "string",
+                      "description": "address2"
+                    },
+                    "address3": {
+                      "type": "string",
+                      "description": "address3"
+                    },
+                    "town": {
+                      "type": "string",
+                      "description": "town"
+                    },
+                    "region": {
+                      "type": "string",
+                      "description": "region"
+                    },
+                    "postcode": {
+                      "type": "string",
+                      "description": "postcode"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "country"
+                    },
+                    "contact_name_on_invoices": {
+                      "type": "boolean",
+                      "description": "contact_name_on_invoices"
+                    },
+                    "default_payment_terms_in_days": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "default_payment_terms_in_days"
+                    },
+                    "locale": {
+                      "type": "string",
+                      "description": "locale"
+                    },
+                    "account_balance": {
+                      "type": "string",
+                      "description": "account_balance"
+                    },
+                    "uses_contact_invoice_sequence": {
+                      "type": "boolean",
+                      "description": "uses_contact_invoice_sequence"
+                    },
+                    "charge_sales_tax": {
+                      "type": "string",
+                      "description": "charge_sales_tax"
+                    },
+                    "sales_tax_registration_number": {
+                      "type": "string",
+                      "description": "sales_tax_registration_number"
+                    },
+                    "active_projects_count": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "active_projects_count"
+                    },
+                    "direct_debit_mandate_state": {
+                      "type": "string",
+                      "description": "direct_debit_mandate_state"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "created_at"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "description": "updated_at"
+                    }
+                  },
+                  "description": "contact"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get a single contact",
+        "description": "Get a single contact",
+        "operationId": "GetContact",
+        "parameters": [
+          {
+            "name": "contact_id",
+            "in": "path",
+            "x-ms-url-encoding": "single" ,
+            "x-ms-summary":"Contact",
+            "description":"Contact",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
     },
-    "security": [
-        {
-            "OAuth": []
+    "/invoices/{id}/transitions/mark_as_sent": {
+      "put": {
+        "summary": "Mark invoice as sent",
+        "description": "Mark invoice as sent",
+        "operationId": "MarkInvoiceAsSent",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "default": "",
+            "in": "path",
+            "x-ms-url-encoding": "single" ,
+            "type": "string",
+            "x-ms-summary":"Invoice Id",
+            "description":"Contact",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
         }
-    ],
-    "tags": []
+      }
+    },
+    "/invoices/{id}/transitions/mark_as_cancelled": {
+      "put": {
+        "summary": "Mark invoice as cancelled",
+        "description": "Mark invoice as cancelled",
+        "operationId": "MarkInvoiceAsCancelled",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "default": "",
+            "in": "path",
+            "x-ms-url-encoding": "single" ,
+            "type": "string",
+            "x-ms-summary":"Invoice Id",
+            "description":"Invoice Id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/invoices/{id}/transitions/mark_as_scheduled": {
+      "put": {
+        "summary": "Mark invoice as scheduled",
+        "description": "Mark invoice as scheduled",
+        "operationId": "MarkInvoiceAsScheduled",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "default": "",
+            "in": "path",
+            "x-ms-url-encoding": "single" ,
+            "type": "string",
+            "x-ms-summary":"Invoice Id",
+            "description":"Invoice Id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/invoices/{id}/transitions/mark_as_draft": {
+      "put": {
+        "summary": "Mark invoice as draft",
+        "description": "Mark invoice as draft",
+        "operationId": "MarkInvoiceAsDraft",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "default": "",
+            "in": "path",
+            "x-ms-url-encoding": "single" ,
+            "type": "string",
+            "x-ms-summary":"Invoice Id",
+            "description":"Invoice Id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/invoices": {
+      "post": {
+        "summary": "Create Invoice",
+        "description": "Create Invoice",
+        "operationId": "CreateInvoice",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "invoice": {
+                  "type": "object",
+                  "properties": {
+                    "contact": {
+                      "type": "string",
+                      "description": "contact"
+                    },
+                    "dated_on": {
+                      "type": "string",
+                      "description": "dated_on"
+                    },
+                    "due_on": {
+                      "type": "string",
+                      "description": "due_on"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "currency"
+                    },
+                    "omit_header": {
+                      "type": "boolean",
+                      "description": "omit_header"
+                    },
+                    "always_show_bic_and_iban": {
+                      "type": "boolean",
+                      "description": "always_show_bic_and_iban"
+                    },
+                    "payment_terms_in_days": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "payment_terms_in_days"
+                    }
+                  },
+                  "description": "invoice"
+                }
+              },
+              "default": {
+                "invoice": {
+                  "contact": "{{url}}/contacts/:id",
+                  "dated_on": "2019-08-18",
+                  "due_on": "2019-09-18",
+                  "currency": "GBP",
+                  "omit_header": false,
+                  "always_show_bic_and_iban": false,
+                  "payment_terms_in_days": 30
+                }
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "List Invoices",
+        "description": "List Invoices",
+        "operationId": "ListInvoices",
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/invoices/{id}": {
+      "delete": {
+        "summary": "Delete Invoice",
+        "description": "Delete Invoice",
+        "operationId": "DeleteInvoice",
+        "parameters": [
+          {
+            "name": "id",
+            "default": "",
+            "in": "path",
+            "x-ms-url-encoding": "single" ,
+            "type": "string",
+            "x-ms-summary":"Invoice Id",
+            "description":"Invoice Id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "Show Invoice",
+        "description": "Show Invoice",
+        "operationId": "ShowInvoice",
+        "parameters": [
+          {
+            "name": "id",
+            "default": "",
+            "in": "path",
+            "x-ms-url-encoding": "single" ,
+            "type": "string",
+
+            "x-ms-summary":"Invoice Id",
+            "description":"Invoice Id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Invoice",
+        "description": "Update Invoice",
+        "operationId": "UpdateInvoice",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "default": "",
+            "in": "path",
+            "x-ms-url-encoding": "single" ,
+            "type": "string",
+            "x-ms-summary":"Invoice Id",
+            "description":"Invoice Id",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "invoice": {
+                  "type": "object",
+                  "properties": {
+                    "notes": {
+                      "type": "string",
+                      "description": "notes"
+                    }
+                  },
+                  "description": "invoice"
+                }
+              },
+              "default": {
+                "invoice": {
+                  "notes": "An example of some additional text."
+                }
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/invoice_items": {
+      "post": {
+        "summary": "Create Invoice Item",
+        "description": "Create Invoice Item",
+        "operationId": "CreateInvoiceItem",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "invoice": {
+                  "type": "string",
+                  "description": "invoice"
+                },
+                "invoice_item": {
+                  "type": "object",
+                  "properties": {
+                    "item_type": {
+                      "type": "string",
+                      "description": "item_type"
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "quantity"
+                    },
+                    "price": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "price"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "description"
+                    }
+                  },
+                  "description": "invoice_item"
+                }
+              },
+              "default": {
+                "invoice": "https://api.freeagent.com/invoices/1",
+                "invoice_item": {
+                  "item_type": "Hours",
+                  "quantity": 6,
+                  "price": 35,
+                  "description": "Fishing trip"
+                }
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/recurring_invoices": {
+      "get": {
+        "summary": "List all recurring invoices",
+        "description": "List all recurring invoices",
+        "operationId": "ListAllRecurringInvoices",
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/recurring_invoices/{id}": {
+      "get": {
+        "summary": "Show Recurring Invoice",
+        "description": "Show Recurring Invoice",
+        "operationId": "ShowRecurringInvoice",
+        "parameters": [
+          {
+            "name": "id",
+            "default": "",
+            "in": "path",
+            "x-ms-url-encoding": "single" ,
+            "x-ms-summary":"Recurring Invoice Id",
+            "description":"Recurring Invoice Id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "x-ms-connector-metadata": [
+    {
+      "propertyName": "Website",
+      "propertyValue": "https://www.freeagent.com/"
+    },
+    {
+      "propertyName": "Privacy policy",
+      "propertyValue": "https://www.freeagent.com/website/privacy/"
+    },
+    {
+      "propertyName": "Categories",
+      "propertyValue": "Finance;Data"
+    }
+  ],
+  "securityDefinitions": {
+    "oauth2_auth": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://api.freeagent.com/v2/approve_app",
+      "tokenUrl": "https://api.freeagent.com/v2/token_endpoint",
+      "scopes": {}
+    }
+  },
+  "security": [
+    {
+      "oauth2_auth": []
+    }
+  ],
+  "tags": []
 }
