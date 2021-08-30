@@ -197,7 +197,123 @@
         "responses": {
           "201": {
             "description": "201",
-            "schema": {}
+            "schema": {
+              "type": "object",
+              "properties": {
+                "contact": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "description": "url"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "description": "first_name"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "description": "last_name"
+                    },
+                    "organisation_name": {
+                      "type": "string",
+                      "description": "organisation_name"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "email"
+                    },
+                    "billing_email": {
+                      "type": "string",
+                      "description": "billing_email"
+                    },
+                    "phone_number": {
+                      "type": "string",
+                      "description": "phone_number"
+                    },
+                    "mobile": {
+                      "type": "string",
+                      "description": "mobile"
+                    },
+                    "address1": {
+                      "type": "string",
+                      "description": "address1"
+                    },
+                    "address2": {
+                      "type": "string",
+                      "description": "address2"
+                    },
+                    "address3": {
+                      "type": "string",
+                      "description": "address3"
+                    },
+                    "town": {
+                      "type": "string",
+                      "description": "town"
+                    },
+                    "region": {
+                      "type": "string",
+                      "description": "region"
+                    },
+                    "postcode": {
+                      "type": "string",
+                      "description": "postcode"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "country"
+                    },
+                    "contact_name_on_invoices": {
+                      "type": "boolean",
+                      "description": "contact_name_on_invoices"
+                    },
+                    "default_payment_terms_in_days": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "default_payment_terms_in_days"
+                    },
+                    "locale": {
+                      "type": "string",
+                      "description": "locale"
+                    },
+                    "account_balance": {
+                      "type": "string",
+                      "description": "account_balance"
+                    },
+                    "uses_contact_invoice_sequence": {
+                      "type": "boolean",
+                      "description": "uses_contact_invoice_sequence"
+                    },
+                    "charge_sales_tax": {
+                      "type": "string",
+                      "description": "charge_sales_tax"
+                    },
+                    "sales_tax_registration_number": {
+                      "type": "string",
+                      "description": "sales_tax_registration_number"
+                    },
+                    "active_projects_count": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "active_projects_count"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "created_at"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "description": "updated_at"
+                    }
+                  },
+                  "description": "contact"
+                }
+              }
+            }
           }
         }
       }
@@ -217,7 +333,13 @@
 
             "x-ms-summary":"Contact",
             "description":"Contact",
-            "required": true
+            "required": true,
+            "x-ms-dynamic-values": {
+              "operationId": "GetContacts",
+              "value-collection": "contacts", 
+              "value-path": "url",
+              "value-title": "organisation_name"
+            }
           }
         ],
         "responses": {
@@ -268,8 +390,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "default",
+          "200": {
+            "description": "200",
             "schema": {}
           }
         }
@@ -431,13 +553,13 @@
             "x-ms-url-encoding": "single" ,
             "type": "string",
             "x-ms-summary":"Invoice Id",
-            "description":"Contact",
+            "description":"Invoice Id",
             "required": true
           }
         ],
         "responses": {
-          "default": {
-            "description": "default",
+          "200": {
+            "description": "200",
             "schema": {}
           }
         }
@@ -462,8 +584,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "default",
+          "200": {
+            "description": "200",
             "schema": {}
           }
         }
@@ -488,7 +610,7 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
             "schema": {}
           }
@@ -514,7 +636,7 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
             "schema": {}
           }
@@ -586,9 +708,143 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "default",
-            "schema": {}
+          "201": {
+            "description": "Created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "invoice": {
+                  "type": "object",
+                  "properties": {
+                    "contact": {
+                      "type": "string",
+                      "description": "contact"
+                    },
+                    "dated_on": {
+                      "type": "string",
+                      "description": "dated_on"
+                    },
+                    "due_on": {
+                      "type": "string",
+                      "description": "due_on"
+                    },
+                    "reference": {
+                      "type": "string",
+                      "description": "reference"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "currency"
+                    },
+                    "exchange_rate": {
+                      "type": "string",
+                      "description": "exchange_rate"
+                    },
+                    "net_value": {
+                      "type": "string",
+                      "description": "net_value"
+                    },
+                    "total_value": {
+                      "type": "string",
+                      "description": "total_value"
+                    },
+                    "paid_value": {
+                      "type": "string",
+                      "description": "paid_value"
+                    },
+                    "due_value": {
+                      "type": "string",
+                      "description": "due_value"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "long_status": {
+                      "type": "string",
+                      "description": "long_status"
+                    },
+                    "omit_header": {
+                      "type": "boolean",
+                      "description": "omit_header"
+                    },
+                    "always_show_bic_and_iban": {
+                      "type": "boolean",
+                      "description": "always_show_bic_and_iban"
+                    },
+                    "send_thank_you_emails": {
+                      "type": "boolean",
+                      "description": "send_thank_you_emails"
+                    },
+                    "send_reminder_emails": {
+                      "type": "boolean",
+                      "description": "send_reminder_emails"
+                    },
+                    "send_new_invoice_emails": {
+                      "type": "boolean",
+                      "description": "send_new_invoice_emails"
+                    },
+                    "bank_account": {
+                      "type": "string",
+                      "description": "bank_account"
+                    },
+                    "payment_terms_in_days": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "payment_terms_in_days"
+                    },
+                    "payment_methods": {
+                      "type": "object",
+                      "properties": {
+                        "paypal": {
+                          "type": "boolean",
+                          "description": "paypal"
+                        },
+                        "stripe": {
+                          "type": "boolean",
+                          "description": "stripe"
+                        }
+                      },
+                      "description": "payment_methods"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "created_at"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "description": "updated_at"
+                    },
+                    "invoice_items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "description": {
+                            "type": "string",
+                            "description": "description"
+                          },
+                          "item_type": {
+                            "type": "string",
+                            "description": "item_type"
+                          },
+                          "price": {
+                            "type": "string",
+                            "description": "price"
+                          },
+                          "quantity": {
+                            "type": "string",
+                            "description": "quantity"
+                          }
+                        }
+                      },
+                      "description": "invoice_items"
+                    }
+                  },
+                  "description": "invoice"
+                }
+              }
+            }
           }
         }
       },
@@ -598,9 +854,137 @@
         "operationId": "ListInvoices",
         "parameters": [],
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
-            "schema": {}
+            "schema":{
+              "type": "object",
+              "properties": {
+                "invoices": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "description": "url"
+                      },
+                      "contact": {
+                        "type": "string",
+                        "description": "contact"
+                      },
+                      "dated_on": {
+                        "type": "string",
+                        "description": "dated_on"
+                      },
+                      "due_on": {
+                        "type": "string",
+                        "description": "due_on"
+                      },
+                      "reference": {
+                        "type": "string",
+                        "description": "reference"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "currency"
+                      },
+                      "exchange_rate": {
+                        "type": "string",
+                        "description": "exchange_rate"
+                      },
+                      "net_value": {
+                        "type": "string",
+                        "description": "net_value"
+                      },
+                      "sales_tax_value": {
+                        "type": "string",
+                        "description": "sales_tax_value"
+                      },
+                      "total_value": {
+                        "type": "string",
+                        "description": "total_value"
+                      },
+                      "paid_value": {
+                        "type": "string",
+                        "description": "paid_value"
+                      },
+                      "due_value": {
+                        "type": "string",
+                        "description": "due_value"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "status"
+                      },
+                      "long_status": {
+                        "type": "string",
+                        "description": "long_status"
+                      },
+                      "comments": {
+                        "type": "string",
+                        "description": "comments"
+                      },
+                      "omit_header": {
+                        "type": "boolean",
+                        "description": "omit_header"
+                      },
+                      "send_thank_you_emails": {
+                        "type": "boolean",
+                        "description": "send_thank_you_emails"
+                      },
+                      "send_reminder_emails": {
+                        "type": "boolean",
+                        "description": "send_reminder_emails"
+                      },
+                      "send_new_invoice_emails": {
+                        "type": "boolean",
+                        "description": "send_new_invoice_emails"
+                      },
+                      "bank_account": {
+                        "type": "string",
+                        "description": "bank_account"
+                      },
+                      "always_show_bic_and_iban": {
+                        "type": "boolean",
+                        "description": "always_show_bic_and_iban"
+                      },
+                      "payment_terms_in_days": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "payment_terms_in_days"
+                      },
+                      "ec_status": {
+                        "type": "string",
+                        "description": "ec_status"
+                      },
+                      "payment_methods": {
+                        "type": "object",
+                        "properties": {
+                          "paypal": {
+                            "type": "boolean",
+                            "description": "paypal"
+                          },
+                          "stripe": {
+                            "type": "boolean",
+                            "description": "stripe"
+                          }
+                        },
+                        "description": "payment_methods"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "created_at"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "description": "updated_at"
+                      }
+                    }
+                  },
+                  "description": "invoices"
+                }
+              }
+            }
           }
         }
       }
@@ -623,7 +1007,7 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
             "schema": {}
           }
@@ -647,9 +1031,155 @@
           }
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
-            "schema": {}
+            "schema": {
+              "type": "object",
+              "properties": {
+                "invoice": {
+                  "type": "object",
+                  "properties": {
+                    "contact": {
+                      "type": "string",
+                      "description": "contact"
+                    },
+                    "project": {
+                      "type": "string",
+                      "description": "project"
+                    },
+                    "dated_on": {
+                      "type": "string",
+                      "description": "dated_on"
+                    },
+                    "due_on": {
+                      "type": "string",
+                      "description": "due_on"
+                    },
+                    "reference": {
+                      "type": "string",
+                      "description": "reference"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "currency"
+                    },
+                    "exchange_rate": {
+                      "type": "string",
+                      "description": "exchange_rate"
+                    },
+                    "net_value": {
+                      "type": "string",
+                      "description": "net_value"
+                    },
+                    "total_value": {
+                      "type": "string",
+                      "description": "total_value"
+                    },
+                    "paid_value": {
+                      "type": "string",
+                      "description": "paid_value"
+                    },
+                    "due_value": {
+                      "type": "string",
+                      "description": "due_value"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "long_status": {
+                      "type": "string",
+                      "description": "long_status"
+                    },
+                    "comments": {
+                      "type": "string",
+                      "description": "comments"
+                    },
+                    "omit_header": {
+                      "type": "boolean",
+                      "description": "omit_header"
+                    },
+                    "always_show_bic_and_iban": {
+                      "type": "boolean",
+                      "description": "always_show_bic_and_iban"
+                    },
+                    "send_thank_you_emails": {
+                      "type": "boolean",
+                      "description": "send_thank_you_emails"
+                    },
+                    "send_reminder_emails": {
+                      "type": "boolean",
+                      "description": "send_reminder_emails"
+                    },
+                    "send_new_invoice_emails": {
+                      "type": "boolean",
+                      "description": "send_new_invoice_emails"
+                    },
+                    "bank_account": {
+                      "type": "string",
+                      "description": "bank_account"
+                    },
+                    "payment_terms_in_days": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "payment_terms_in_days"
+                    },
+                    "ec_status": {
+                      "type": "string",
+                      "description": "ec_status"
+                    },
+                    "payment_methods": {
+                      "type": "object",
+                      "properties": {
+                        "paypal": {
+                          "type": "boolean",
+                          "description": "paypal"
+                        },
+                        "stripe": {
+                          "type": "boolean",
+                          "description": "stripe"
+                        }
+                      },
+                      "description": "payment_methods"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "created_at"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "description": "updated_at"
+                    },
+                    "invoice_items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "description": {
+                            "type": "string",
+                            "description": "description"
+                          },
+                          "item_type": {
+                            "type": "string",
+                            "description": "item_type"
+                          },
+                          "price": {
+                            "type": "string",
+                            "description": "price"
+                          },
+                          "quantity": {
+                            "type": "string",
+                            "description": "quantity"
+                          }
+                        }
+                      },
+                      "description": "invoice_items"
+                    }
+                  },
+                  "description": "invoice"
+                }
+              }
+            }
           }
         }
       },
@@ -696,76 +1226,14 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "default",
+          "200": {
+            "description": "ok",
             "schema": {}
           }
         }
       }
     },
-    "/invoice_items": {
-      "post": {
-        "summary": "Create Invoice Item",
-        "description": "Create Invoice Item",
-        "operationId": "CreateInvoiceItem",
-        "consumes": ["application/json"],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "invoice": {
-                  "type": "string",
-                  "description": "invoice"
-                },
-                "invoice_item": {
-                  "type": "object",
-                  "properties": {
-                    "item_type": {
-                      "type": "string",
-                      "description": "item_type"
-                    },
-                    "quantity": {
-                      "type": "integer",
-                      "format": "int32",
-                      "description": "quantity"
-                    },
-                    "price": {
-                      "type": "integer",
-                      "format": "int32",
-                      "description": "price"
-                    },
-                    "description": {
-                      "type": "string",
-                      "description": "description"
-                    }
-                  },
-                  "description": "invoice_item"
-                }
-              },
-              "default": {
-                "invoice": "https://api.freeagent.com/invoices/1",
-                "invoice_item": {
-                  "item_type": "Hours",
-                  "quantity": 6,
-                  "price": 35,
-                  "description": "Fishing trip"
-                }
-              }
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "default",
-            "schema": {}
-          }
-        }
-      }
-    },
+  
     "/recurring_invoices": {
       "get": {
         "summary": "List all recurring invoices",
@@ -773,9 +1241,87 @@
         "operationId": "ListAllRecurringInvoices",
         "parameters": [],
         "responses": {
-          "default": {
-            "description": "default",
-            "schema": {}
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recurring_invoices": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "description": "url"
+                      },
+                      "contact": {
+                        "type": "string",
+                        "description": "contact"
+                      },
+                      "dated_on": {
+                        "type": "string",
+                        "description": "dated_on"
+                      },
+                      "frequency": {
+                        "type": "string",
+                        "description": "frequency"
+                      },
+                      "next_recurs_on": {
+                        "type": "string",
+                        "description": "next_recurs_on"
+                      },
+                      "recurring_end_date": {
+                        "type": "string",
+                        "description": "recurring_end_date"
+                      },
+                      "recurring_status": {
+                        "type": "string",
+                        "description": "recurring_status"
+                      },
+                      "reference": {
+                        "type": "string",
+                        "description": "reference"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "currency"
+                      },
+                      "exchange_rate": {
+                        "type": "string",
+                        "description": "exchange_rate"
+                      },
+                      "net_value": {
+                        "type": "string",
+                        "description": "net_value"
+                      },
+                      "sales_tax_value": {
+                        "type": "string",
+                        "description": "sales_tax_value"
+                      },
+                      "total_value": {
+                        "type": "string",
+                        "description": "total_value"
+                      },
+                      "omit_header": {
+                        "type": "boolean",
+                        "description": "omit_header"
+                      },
+                      "always_show_bic_and_iban": {
+                        "type": "boolean",
+                        "description": "always_show_bic_and_iban"
+                      },
+                      "payment_terms_in_days": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "payment_terms_in_days"
+                      }
+                    }
+                  },
+                  "description": "recurring_invoices"
+                }
+              }
+            }
           }
         }
       }
@@ -798,9 +1344,130 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "default",
-            "schema": {}
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recurring_invoice": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "description": "url"
+                    },
+                    "contact": {
+                      "type": "string",
+                      "description": "contact"
+                    },
+                    "dated_on": {
+                      "type": "string",
+                      "description": "dated_on"
+                    },
+                    "frequency": {
+                      "type": "string",
+                      "description": "frequency"
+                    },
+                    "next_recurs_on": {
+                      "type": "string",
+                      "description": "next_recurs_on"
+                    },
+                    "recurring_end_date": {
+                      "type": "string",
+                      "description": "recurring_end_date"
+                    },
+                    "recurring_status": {
+                      "type": "string",
+                      "description": "recurring_status"
+                    },
+                    "reference": {
+                      "type": "string",
+                      "description": "reference"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "currency"
+                    },
+                    "exchange_rate": {
+                      "type": "string",
+                      "description": "exchange_rate"
+                    },
+                    "net_value": {
+                      "type": "string",
+                      "description": "net_value"
+                    },
+                    "sales_tax_value": {
+                      "type": "string",
+                      "description": "sales_tax_value"
+                    },
+                    "total_value": {
+                      "type": "string",
+                      "description": "total_value"
+                    },
+                    "omit_header": {
+                      "type": "boolean",
+                      "description": "omit_header"
+                    },
+                    "always_show_bic_and_iban": {
+                      "type": "boolean",
+                      "description": "always_show_bic_and_iban"
+                    },
+                    "payment_terms_in_days": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "payment_terms_in_days"
+                    },
+                    "invoice_items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string",
+                            "description": "url"
+                          },
+                          "position": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "position"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "description"
+                          },
+                          "item_type": {
+                            "type": "string",
+                            "description": "item_type"
+                          },
+                          "price": {
+                            "type": "string",
+                            "description": "price"
+                          },
+                          "quantity": {
+                            "type": "string",
+                            "description": "quantity"
+                          },
+                          "sales_tax_rate": {
+                            "type": "string",
+                            "description": "sales_tax_rate"
+                          },
+                          "sales_tax_status": {
+                            "type": "string",
+                            "description": "sales_tax_status"
+                          },
+                          "category": {
+                            "type": "string",
+                            "description": "category"
+                          }
+                        }
+                      },
+                      "description": "invoice_items"
+                    }
+                  },
+                  "description": "recurring_invoice"
+                }
+              }
+            }
           }
         }
       }
