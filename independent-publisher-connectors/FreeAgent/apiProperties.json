@@ -5,7 +5,7 @@
         "type": "oauthSetting",
         "oAuthSettings": {
           "identityProvider": "oauth2",
-          "clientId": "[YOUR_VALUE]",
+          "clientId": "Ig_9msmfd2ua93ZVxeO65w",
           "scopes": [
 
           ],
