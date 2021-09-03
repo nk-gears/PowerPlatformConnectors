@@ -39,6 +39,12 @@
                         "x-ms-summary": "Url",
                         "description": "Url"
                       },
+                      "id": {
+                        "type": "string",
+                        "x-ms-summary": "id",
+                        "description": "id",
+                        "x-ms-visibility":"internal"
+                      },
                       "first_name": {
                         "type": "string",
                         "x-ms-summary": "First Name",
@@ -399,7 +405,7 @@
             "x-ms-dynamic-values": {
               "operationId": "GetContacts",
               "value-collection": "contacts",
-              "value-path": "url",
+              "value-path": "id",
               "value-title": "organisation_name"
             }
           }
@@ -431,7 +437,7 @@
             "x-ms-dynamic-values": {
               "operationId": "GetContacts",
               "value-collection": "contacts",
-              "value-path": "url",
+              "value-path": "id",
               "value-title": "organisation_name"
             },
             "required": true
@@ -445,6 +451,22 @@
                 "contact": {
                   "type": "object",
                   "properties": {
+                    "contact_name_on_invoices": {
+                      "type": "boolean",
+                      "x-ms-summary": "Contact Name On Invoices",
+                      "description": "Contact Name On Invoices"
+                    },
+                    "default_payment_terms_in_days": {
+                      "type": "integer",
+                      "format": "int32",
+                      "x-ms-summary": "Default Payment Terms In Days",
+                      "description": "Default Payment Terms In Days"
+                    },
+                    "locale": {
+                      "type": "string",
+                      "x-ms-summary": "Locale",
+                      "description": "Locale"
+                    },
                     "country": {
                       "type": "string",
                       "x-ms-summary": "Country",
@@ -636,7 +658,7 @@
             "x-ms-dynamic-values": {
               "operationId": "GetContacts",
               "value-collection": "contacts",
-              "value-path": "url",
+              "value-path": "id",
               "value-title": "organisation_name"
             },
             "type": "string"
@@ -665,8 +687,8 @@
             "x-ms-dynamic-values": {
               "operationId": "ListInvoices",
               "value-collection": "invoices",
-              "value-path": "url",
-              "value-title": "reference"
+              "value-path": "id",
+              "value-title": "title"
             },
             "required": true
           }
@@ -729,8 +751,8 @@
             "x-ms-dynamic-values": {
               "operationId": "ListInvoices",
               "value-collection": "invoices",
-              "value-path": "url",
-              "value-title": "reference"
+              "value-path": "id",
+              "value-title": "title"
             },
             "required": true
           }
@@ -765,8 +787,8 @@
             "x-ms-dynamic-values": {
               "operationId": "ListInvoices",
               "value-collection": "invoices",
-              "value-path": "url",
-              "value-title": "reference"
+              "value-path": "id",
+              "value-title": "title"
             }
           }
         ],
@@ -800,7 +822,13 @@
                     "contact": {
                       "type": "string",
                       "x-ms-summary": "Contact",
-                      "description": "Contact"
+                      "description": "Contact",
+                      "x-ms-dynamic-values": {
+                        "operationId": "GetContacts",
+                        "value-collection": "contacts",
+                        "value-path": "id",
+                        "value-title": "organisation_name"
+                      }
                     },
                     "dated_on": {
                       "type": "string",
@@ -1031,6 +1059,18 @@
                   "items": {
                     "type": "object",
                     "properties": {
+                      "id": {
+                        "type": "string",
+                        "x-ms-summary": "id",
+                        "description": "id",
+                        "x-ms-visibility":"internal"
+                      },
+                      "title": {
+                        "type": "string",
+                        "x-ms-summary": "title",
+                        "description": "title",
+                        "x-ms-visibility":"internal"
+                      },
                       "url": {
                         "type": "string",
                         "x-ms-summary": "Url",
@@ -1203,8 +1243,8 @@
             "x-ms-dynamic-values": {
               "operationId": "ListInvoices",
               "value-collection": "invoices",
-              "value-path": "url",
-              "value-title": "reference"
+              "value-path": "id",
+              "value-title": "title"
             },
             "required": true
           }
@@ -1233,8 +1273,8 @@
             "x-ms-dynamic-values": {
               "operationId": "ListInvoices",
               "value-collection": "invoices",
-              "value-path": "url",
-              "value-title": "reference"
+              "value-path": "id",
+              "value-title": "title"
             },
             "required": true
           }
@@ -1445,8 +1485,8 @@
             "x-ms-dynamic-values": {
               "operationId": "ListInvoices",
               "value-collection": "invoices",
-              "value-path": "url",
-              "value-title": "reference"
+              "value-path": "id",
+              "value-title": "title"
             },
             "required": true
           },
@@ -1612,12 +1652,6 @@
             "x-ms-summary": "Recurring Invoice Id",
             "description": "Recurring Invoice Id",
             "type": "string",
-            "x-ms-dynamic-values": {
-              "operationId": "ListAllRecurringInvoices",
-              "value-collection": "recurring_invoices",
-              "value-path": "url",
-              "value-title": "reference"
-            },
             "required": true
           }
         ],

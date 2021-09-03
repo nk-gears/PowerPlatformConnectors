@@ -1,5 +1,5 @@
 {
-  "swagger": "2.0",
+  "swagger": "3.0",
   "info": {
     "title": "Etsy",
     "description": "This connector uses your API key to access various Etsy.com features. It supports actions for inventory, sales orders, and shop management. All actions are based on Etsy Open API v3 which does have endpoints that are still in beta. If such as actions use the beta API, the action with include Beta in the title and will return a 501 response code.",
