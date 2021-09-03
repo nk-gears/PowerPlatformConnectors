@@ -2,7 +2,7 @@
 
 FreeAgent is a cloud based accounting system. It brings everything together, from invoice and expense management to project management and sales tax. FreeAgent made specifically for freelancers, small business owners and their accountants
 
-## Publisher: Nirmal Kumar
+## Publisher: Nirmal
 
 ## Prerequisites
 To use this connector, you need the following
@@ -12,64 +12,48 @@ To use this connector, you need the following
 - A FreeAgent developer account with a configured OAuth 2.0 application. https://dev.freeagent.com/
 
 ## Obtaining Credentials
+- Create a New Developer Account here : https://dev.freeagent.com/signup
 
-
-## API Documentation
-
-
-## Supported Operations
-This connector supports the following operations:
-
-## Supported Operations
-This connector supports the following operations:
-
-
-### Action: Get Clients
-Retrieves List of all clients
-
-
-### Action: Get Categories
-Retrieves List of categories
-
-### Action: Get Contacts
-Retrieves List of contacts
-
-### Action: Get Contacts
-Retrieves a contact info based on Id
-
-### Action: Create Contact
-Create a New Contact
-
-### Action: Delete a Contact
-Delete a Contact
-
-### Action: Delete a Contact
-Update a  Contact
-
-
-### Action: Get Invoices
-Retrieve a list of invoices
-
-### Action: Create Invoice
-Create a Invoice 
-
-### Action: Delete Invoice
-Delete a Invoice 
-
-### Action: Create Invoice Item
-Create a Invoice Line Item
-
-### Action: Get Recurring Invoices
-Retrieves a list of recurring invoices
-
-### Action: Get a Recurring Invoice
-Retrieves a recurring invoice based on Id.
+- Create a New App
+- Update the App OAuth Redirect URI's to "	
+https://global.consent.azure-apim.net/redirect"
+- Get the OAuth identifier (ClientID),OAuth secret (Client Secret)
+- Deploy the connector using the oAuth Credentials.
 
 
 
+### Supported Operations
+Freeagent API has more than 40 operations. Currentlt this connector the most important operations related to Invoice, Contact and Recurring Invoices.
 
-## Obtaining Credentials
-- Create a App and get the OAuth Credentials. 
+#### 1. Contact
+- List all contacts : Retrieves list of Contacts 
+- Create Contact : Creates a New Contact
+- Delete Contact : Delete a Contact based on Contact Url
+- Update Contact : Update a Contact based on Contact Url
+- Get a single contact : Retrieve a Contact by Contact Url.
+
+
+####  2. Invoice
+- Create Invoice : Creates a New Invoice
+- List Invoices : List all Invoices
+- Delete Invoice : Delete a Invoice
+- Show Invoice : Retrieve a Invoice based on Invoice Url
+- Update Invoice : Update a Invoice based on Invoice Url
+
+#### 3. Invoice Flag
+
+- Mark invoice as sent : Update a Invoice with Status Sent
+- Mark invoice as cancelled : Update a Invoice Status as Cancelled.
+- Mark invoice as scheduled : Update a Invoice as Scheduled
+- Mark invoice as draft : Update a Invoice as Draft
+
+
+#### 4. Recurring Invoice
+- List all recurring invoices : Retrieves the list of recurring invoices
+- Show Recurring Invoice : Retrieve details about a recurring invoice
+
+Note : The API doesn't support creating/updating/deleting Recurring Invoices.
+
 
 
 ## Known Issues and Limitations

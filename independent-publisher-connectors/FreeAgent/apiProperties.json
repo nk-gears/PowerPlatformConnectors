@@ -29,6 +29,38 @@
       }
     },
     "iconBrandColor": "#C4EEAE",
+    "policyTemplateInstances":[
+      {
+        "parameters": {
+          "x-ms-apimTemplate-operationName": [
+            "ListInvoices"
+          ],
+          "x-ms-apimTemplateParameter.propertyParentPath": "@body().invoices",
+          "x-ms-apimTemplateParameter.propertySubPath": "url",
+          "x-ms-apimTemplateParameter.sourceString": "https://api.freeagent.com/v2/invoices/",
+          "x-ms-apimTemplateParameter.replacementString": "",
+          "x-ms-apimTemplateParameter.newPropertyPath": "@item().id",
+          "x-ms-apimTemplate-policySection": "Response"
+        },
+        "templateId": "StringReplace",
+        "title": "Replace Invoice Url to ID"
+      },
+      {
+        "parameters": {
+          "x-ms-apimTemplate-operationName": [
+            "GetContacts"
+          ],
+          "x-ms-apimTemplateParameter.propertyParentPath": "@body().contacts",
+          "x-ms-apimTemplateParameter.propertySubPath": "url",
+          "x-ms-apimTemplateParameter.sourceString": "https://api.freeagent.com/v2/invoices/",
+          "x-ms-apimTemplateParameter.replacementString": "",
+          "x-ms-apimTemplateParameter.newPropertyPath": "@item().id",
+          "x-ms-apimTemplate-policySection": "Response"
+        },
+        "templateId": "StringReplace",
+        "title": "Replace Contact Url to ID"
+      }
+    ],
     "capabilities": [],
     "publisher": "Nirmal Kumar",
     "stackOwner": "FreeAgent"
