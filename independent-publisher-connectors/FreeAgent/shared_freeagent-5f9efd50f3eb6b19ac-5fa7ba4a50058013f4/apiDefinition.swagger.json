@@ -411,7 +411,8 @@
         ],
         "responses": {
           "200": {
-            "description": "200"
+            "description": "200",
+            "schema": {}
           }
         }
       },
@@ -481,7 +482,8 @@
         ],
         "responses": {
           "200": {
-            "description": "200"
+            "description": "200",
+            "schema": {}
           }
         }
       },
@@ -692,7 +694,8 @@
         ],
         "responses": {
           "200": {
-            "description": "200"
+            "description": "200",
+            "schema": {}
           }
         }
       }
@@ -720,7 +723,8 @@
         ],
         "responses": {
           "200": {
-            "description": "200"
+            "description": "200",
+            "schema": {}
           }
         }
       }
@@ -754,7 +758,8 @@
         ],
         "responses": {
           "200": {
-            "description": "default"
+            "description": "default",
+            "schema": {}
           }
         }
       }
@@ -788,7 +793,8 @@
         ],
         "responses": {
           "200": {
-            "description": "default"
+            "description": "default",
+            "schema": {}
           }
         }
       }
@@ -1244,7 +1250,8 @@
         ],
         "responses": {
           "200": {
-            "description": "default"
+            "description": "default",
+            "schema": {}
           }
         }
       },
@@ -1512,8 +1519,9 @@
         ],
         "responses": {
           "200": {
-
-            "description": "Ok"
+            "x-ms-summary": "Ok",
+            "description": "Ok",
+            "schema": {}
           }
         }
       }

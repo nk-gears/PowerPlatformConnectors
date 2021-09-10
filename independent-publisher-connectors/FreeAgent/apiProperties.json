@@ -5,10 +5,8 @@
         "type": "oauthSetting",
         "oAuthSettings": {
           "identityProvider": "oauth2",
-          "clientId": "Ig_9msmfd2ua93ZVxeO65w",
-          "scopes": [
-
-          ],
+          "clientId": "[[CLIENT ID]]",
+          "scopes": [],
           "redirectMode": "Global",
           "redirectUrl": "https://global.consent.azure-apim.net/redirect",
           "properties": {
@@ -28,7 +26,7 @@
         }
       }
     },
-    "iconBrandColor": "#C4EEAE",
+    "iconBrandColor": "#da3b01",
     "policyTemplateInstances":[
       {
         "parameters": {
