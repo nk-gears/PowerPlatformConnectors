@@ -410,8 +410,10 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "200"
+          "default": {
+            "description": "default"
+            
+            
           }
         }
       },
