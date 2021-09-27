@@ -11,7 +11,7 @@
     },
     "termsOfService": "https://api.itglue.com/developer"
   },
-  "host": "api.itglue.com",
+  "host": "api.eu.itglue.com",
   "schemes": [
     "https"
   ],
@@ -782,7 +782,7 @@
               "description": "",
               "type": "object",
               "properties": {
-                "data:": {
+                "data": {
                   "type": "array",
                   "items": {
                     "$ref": "#/definitions/countries-read"
