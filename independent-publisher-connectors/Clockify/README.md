@@ -27,7 +27,7 @@ Clockify API supports more than 15 resource actions. Currently this connector su
 #### 3. Projects
 - List Projects : Retrieves List of Projects for a given workspace Id
 
-#### 4. Users
+#### 4. Users 
 - List All Users :  Retrieves List of All Users for a given workspace Id
 
 #### 5. Timesheet
